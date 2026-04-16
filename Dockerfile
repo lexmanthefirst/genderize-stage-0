@@ -15,7 +15,7 @@ RUN apt-get update \
     && pip install --upgrade pip setuptools wheel \
     && rm -rf /var/lib/apt/lists/*
 
-COPY pyproject.toml README.md ./
+COPY pyproject.toml README.md main.py ./
 COPY app ./app
 
 RUN pip install .
