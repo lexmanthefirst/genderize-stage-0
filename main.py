@@ -46,6 +46,11 @@ async def validation_exception_handler(_: Request, exc: RequestValidationError):
 	return fail_response(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, message="Validation error")
 
 
+@app.get("/health", include_in_schema=False)
+async def health():
+	return {"status": "ok"}
+
+
 @app.get("/", include_in_schema=False)
 async def root():
     return {
